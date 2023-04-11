@@ -1,21 +1,20 @@
-import 'zone.js/dist/zone';
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
+import { RouteReuseStrategy, provideRouter } from '@angular/router';
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
-@Component({
-  selector: 'my-app',
-  standalone: true,
-  imports: [CommonModule],
-  template: `
-    <h1>Hello from {{name}}!</h1>
-    <a target="_blank" href="https://angular.io/start">
-      Learn more about Angular 
-    </a>
-  `,
-})
-export class App {
-  name = 'Angular';
+import { routes } from './app/app.routes';
+import { AppComponent } from './app/app.component';
+import { environment } from './environments/environment';
+
+if (environment.production) {
+  enableProdMode();
 }
 
-bootstrapApplication(App);
+bootstrapApplication(AppComponent, {
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    importProvidersFrom(IonicModule.forRoot({})),
+    provideRouter(routes),
+  ],
+});
