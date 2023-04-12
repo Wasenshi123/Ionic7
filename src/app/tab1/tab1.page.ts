@@ -3,26 +3,25 @@ import { Component } from '@angular/core';
 import { IonicModule, ModalController } from '@ionic/angular';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 import { DataModel } from '../data-model';
+import { ModalContentModule } from '../modal-content/modal-content.module';
+import { ModalService } from '../modal.service';
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss'],
   standalone: true,
-  imports: [IonicModule, ExploreContainerComponent],
+  imports: [IonicModule, ModalContentModule],
 })
 export class Tab1Page {
-  constructor(private modal: ModalController) {}
+  constructor(private modalService: ModalService) {}
 
   async open() {
-    const page = await this.modal.create({
-      component: ModalContentComponent,
-      componentProps: {
-        myModel: {
-          name: 'My Name',
-          title: 'Mock'
-        } as DataModel
-      }
+    const page = await this.modalService.openModal(ModalContentComponent, {
+      myModel: {
+        name: 'My Name',
+        title: 'Mock'
+      },
     });
     page.present();
   }

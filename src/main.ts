@@ -11,6 +11,8 @@ if (environment.production) {
   enableProdMode();
 }
 
+import 'zone.js';
+
 bootstrapApplication(AppComponent, {
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
