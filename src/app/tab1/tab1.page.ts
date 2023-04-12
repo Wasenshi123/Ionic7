@@ -19,7 +19,6 @@ export class Tab1Page {
   async open() {
     const page = await this.modalService.openModal(ModalContentComponent, {
       myModel: {
-        name: 'My Name',
         title: 'Mock'
       },
     });
