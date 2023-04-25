@@ -26,9 +26,3 @@
   text-decoration: none;
 }
 
-.required {
-  .label-text::after {
-    content: "*";
-    color: red;
-  }
-}
