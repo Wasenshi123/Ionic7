@@ -37,6 +37,8 @@ export class ModalBase implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    this.nav.setRoot(this.root as any, this.props);
+
     this.navInit.emit(this.nav);
     setTimeout(() => {
       this.cdr.markForCheck();
