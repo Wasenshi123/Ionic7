@@ -31,3 +31,38 @@
     color: red;
   }
 }
+
+.modal-panel {
+  #close-btn {
+      position: absolute;
+      font-size: 24px;
+      color: black;
+      .md & {
+          top: calc(var(--ion-safe-area-top) + 6px);
+          right: 10px;
+          z-index: 110;
+      }
+      .ios & {
+          top: calc(var(--ion-safe-area-top) - 15px);
+          right: -10px;
+          z-index: 500;
+      }
+  }
+  
+  &::part(content) {
+      @media (min-width: 768px) {
+          height: 95%;
+          width: 95%;
+      }
+  }
+
+  ion-icon {
+      color: inherit;
+  }
+
+  ion-back-button {
+      .ios & {
+          padding-right: 15px;
+      }
+  }
+}

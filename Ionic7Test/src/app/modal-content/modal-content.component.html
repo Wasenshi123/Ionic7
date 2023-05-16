@@ -1,5 +1,14 @@
-This is {{ myModel.title }} page.
-
-<p>Hello, {{ myModel.name }}</p>
-
-<ion-button (click)="close()">close</ion-button>
+<ion-header>
+  <ion-toolbar color="warning"></ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-row>
+    <ion-col>
+      <ion-item *ngFor="let item of mylist; let i = index;" >
+        <ion-checkbox [(ngModel)]="selects[i]" labelPlacement="end" justify="start"> 
+          Title: {{ item.title }} - Name: {{ item.name }} 
+        </ion-checkbox>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+</ion-content>

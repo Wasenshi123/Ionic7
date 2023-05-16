@@ -8,14 +8,15 @@ import { DataModel } from '../data-model';
   styleUrls: ['./modal-content.component.scss'],
 })
 export class ModalContentComponent implements OnInit {
+  
   @Input()
-  myModel!: DataModel;
+  mylist: DataModel[] = [];
+
+  selects: boolean[] = [];
 
   constructor(private modal: ModalController) {}
 
-  ngOnInit() {}
-
-  close() {
-    this.modal.dismiss();
+  ngOnInit() {
+    console.log(this.mylist);
   }
 }
