@@ -22,8 +22,7 @@ export class HomePage {
     const mylist = Array(10).fill(null).map((n, i) => {
       return { id: i, value: i, displayName: 'Test' + i } as Data;
     });
-
-    const data = { optionList: mylist };
-    const modal = await this.modalService.openModal(ModalContentComponent, { mydata: data});
+    
+    const modal = await this.modalService.openModal(ModalContentComponent, { mylist });
   }
 }
