@@ -12,14 +12,6 @@ export class ModalContentComponent implements OnInit {
   @Input()
   mylist!: Data[];
 
-  isValueType = true;
-  isText = false;
-
-  yesLabel: string = '';
-  noLabel: string = '';
-  textLabel: string = '';
-  numberLabel: string = '';
-
   constructor(private modal: ModalController) {}
 
   ngOnInit() {
