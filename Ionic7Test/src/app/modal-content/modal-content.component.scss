@@ -1,0 +1,27 @@
+ion-card {
+    ion-col {
+        align-self: center;
+    }
+}
+
+.icon-button {
+    ion-icon {
+        margin-right: 0px;
+    }
+}
+
+.center {
+    text-align: -webkit-center;
+}
+
+.audit {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.audit-label {
+    margin-right: 10px;
+}
+
+.btn-group {
+    margin-left: max(var(--ion-safe-area-left), 10px);
+}
