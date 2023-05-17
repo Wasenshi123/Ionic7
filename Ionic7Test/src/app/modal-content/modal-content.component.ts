@@ -47,6 +47,10 @@ export class ModalContentComponent implements OnInit {
     [list[firstIndex], list[secondIndex]] = [list[secondIndex], list[firstIndex]];
   }
 
+  save() {
+    // mock function
+  }
+
 }
 
 export interface Data {

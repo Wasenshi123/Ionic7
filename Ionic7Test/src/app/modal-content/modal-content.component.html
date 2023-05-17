@@ -3,53 +3,56 @@
 </ion-header>
 <ion-content>
   <form #form="ngForm">
+
     <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-card-header><ion-card-title>Options</ion-card-title></ion-card-header>
+            <ion-card-content>
+              <ion-row *ngFor="let item of mylist as data; let i=index; trackBy: trackOption;">
+                <ion-col>
+                  <ion-item>
+                    <ion-label>Display Name:</ion-label>
+                    <ion-input name="option-displayName-{{i}}" placeholder="Enter the name to show" [(ngModel)]="item.displayName" required></ion-input>
 
+                    <ion-label>Value:</ion-label>
+                    <ion-input name="option-value-{{i}}" placeholder="Enter value"
+                        [(ngModel)]="item.value"
+                        type="number"
+                        required></ion-input>
+
+                    <ion-button color="medium" size="small" class="icon-button" (click)="swap(item, data[i-1])" [disabled]="i === 0">
+                      <ion-icon name="arrow-up"></ion-icon>
+                    </ion-button>
+                    <ion-button color="medium" size="small" class="icon-button" (click)="swap(item, data[i+1])" [disabled]="i === data.length - 1">
+                      <ion-icon name="arrow-down"></ion-icon>
+                    </ion-button>
+                    <ion-button class="icon-button" (click)="mylist.splice(i, 1)" color="danger" *ngIf="data.length > 1"><ion-icon name="trash"></ion-icon></ion-button>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="center">
+                  <ion-fab-button (click)="addNew()" size="small" color="medium">
+                    <ion-icon name="add"></ion-icon>
+                  </ion-fab-button>
+                </ion-col>
+              </ion-row>
+              
+              
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" (click)="save()" color="primary" [disabled]="form.invalid">Save</ion-button>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
     
-  <ion-row>
-    <ion-col>
-      <ion-card>
-        <ion-card-header><ion-card-title>Options</ion-card-title></ion-card-header>
-        <ion-card-content>
-          <ion-row *ngFor="let item of mylist as data; let i=index; trackBy: trackOption;">
-            <ion-col>
-              <ion-item>
-                <ion-label>Display Name:</ion-label>
-                <ion-input name="option-displayName-{{i}}" placeholder="Enter the name to show" [(ngModel)]="item.displayName" required></ion-input>
-
-                <ion-label>Value:</ion-label>
-                <ion-input name="option-value-{{i}}" placeholder="Enter value"
-                    [(ngModel)]="item.value"
-                    type="number"
-                    required></ion-input>
-    
-                <ion-button color="medium" size="small" class="icon-button" (click)="swap(item, data[i-1])" [disabled]="i === 0">
-                  <ion-icon name="arrow-up"></ion-icon>
-                </ion-button>
-                <ion-button color="medium" size="small" class="icon-button" (click)="swap(item, data[i+1])" [disabled]="i === data.length - 1">
-                  <ion-icon name="arrow-down"></ion-icon>
-                </ion-button>
-                <ion-button class="icon-button" (click)="mylist.splice(i, 1)" color="danger" *ngIf="data.length > 1"><ion-icon name="trash"></ion-icon></ion-button>
-              </ion-item>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col class="center">
-              <ion-fab-button (click)="addNew()" size="small" color="medium">
-                <ion-icon name="add"></ion-icon>
-              </ion-fab-button>
-            </ion-col>
-          </ion-row>
-          
-          
-        </ion-card-content>
-      </ion-card>
-      
-      
-
-    </ion-col>
-  </ion-row>
-
-</ion-grid>
-</form>
+  </form>
 </ion-content>
